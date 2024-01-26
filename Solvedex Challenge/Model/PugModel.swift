@@ -6,9 +6,21 @@
 //
 
 import Foundation
-struct PugModel{
+struct PugModel {
     let image: String
-    let likesAmount: Int = {
-        return Int.random(in: 1...500)
-    }()
+    var likes: Int
+
+    init(image: String) {
+        self.image = image
+        self.likes = Int.random(in: 1...500)
+    }
+
+    var likesAmount: Int {
+        get {
+            return likes
+        }
+        set {
+            likes = newValue
+        }
+    }
 }

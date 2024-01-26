@@ -31,15 +31,25 @@ class PugCollectionViewCell: UICollectionViewCell {
         button.tintColor = .black
         button.setBackgroundImage(UIImage(systemName: Datasource.UICollection.heartIcon), for: .normal)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-
+        
         
         return button
     }()
     
     @objc func buttonTapped(_sender: UIButton) {
-            // Lógica que se ejecuta cuando el botón es tocado
-        print("hey hey hey")
+        DispatchQueue.main.async {[weak self] in
+            guard let self = self else {return}
+            self.pugViewModel?.incrementLikes()
+            self.configureUI()
         }
+    }
+    
+    private func subscriptions(){
+        self.pugViewModel?.sender.binder({ _ in
+            self.configureUI()
+            print("meeeeh")
+        })
+    }
     
     private let likesText: UILabel = {
         let label = UILabel()
@@ -53,11 +63,13 @@ class PugCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
+        self.subscriptions()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configureUI()
+        self.subscriptions()
     }
     
     // MARK: - Configuration

@@ -7,11 +7,27 @@
 
 import Foundation
 class PugViewModel{
-    let image: String
-    let likesAmount: String
+    public let image: String
+    public var likesAmount: String
+    public var pug: PugModel
+    public var sender: ObservableObject<Bool?> = ObservableObject(nil)
     
     init(_ pug: PugModel){
+        self.pug = pug
         self.image = pug.image
-        self.likesAmount = "\(pug.likesAmount) \((pug.likesAmount > 1 ? "likes" : "like"))"
+        self.likesAmount = "\(self.pug.likesAmount) \((self.pug.likesAmount > 1 ? "likes" : "like"))"
+    }
+    
+    private func setLikesAmount(amount: Int){
+        self.likesAmount = "\(self.pug.likesAmount) \((self.pug.likesAmount > 1 ? "likes" : "like"))"
+    }
+    
+    public func incrementLikes(){
+        self.pug.likesAmount = self.pug.likes + 1
+        self.setLikesAmount(amount: self.pug.likesAmount)
+        print(self.pug.likesAmount)
+        DispatchQueue.main.async {
+            self.sender.value = true
+        }
     }
 }
