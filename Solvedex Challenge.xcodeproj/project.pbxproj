@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		B37C0CBA2B636B3B00FC1C58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CB92B636B3B00FC1C58 /* AppDelegate.swift */; };
 		B37C0CBC2B636B3B00FC1C58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CBB2B636B3B00FC1C58 /* SceneDelegate.swift */; };
-		B37C0CBE2B636B3B00FC1C58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CBD2B636B3B00FC1C58 /* ViewController.swift */; };
+		B37C0CBE2B636B3B00FC1C58 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CBD2B636B3B00FC1C58 /* MainViewController.swift */; };
 		B37C0CC12B636B3B00FC1C58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B37C0CBF2B636B3B00FC1C58 /* Main.storyboard */; };
 		B37C0CC32B636B3D00FC1C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B37C0CC22B636B3D00FC1C58 /* Assets.xcassets */; };
 		B37C0CC62B636B3D00FC1C58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B37C0CC42B636B3D00FC1C58 /* LaunchScreen.storyboard */; };
+		B37C0CCE2B636E0D00FC1C58 /* VCPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CCD2B636E0D00FC1C58 /* VCPreview.swift */; };
+		B37C0CD12B63764800FC1C58 /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CD02B63764800FC1C58 /* UIView+ext.swift */; };
+		B37C0CD42B637CAC00FC1C58 /* PugCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CD32B637CAC00FC1C58 /* PugCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B37C0CB62B636B3B00FC1C58 /* Solvedex Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Solvedex Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B37C0CB92B636B3B00FC1C58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B37C0CBB2B636B3B00FC1C58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B37C0CBD2B636B3B00FC1C58 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B37C0CBD2B636B3B00FC1C58 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B37C0CC02B636B3B00FC1C58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B37C0CC22B636B3D00FC1C58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B37C0CC52B636B3D00FC1C58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B37C0CC72B636B3D00FC1C58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B37C0CCD2B636E0D00FC1C58 /* VCPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCPreview.swift; sourceTree = "<group>"; };
+		B37C0CD02B63764800FC1C58 /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
+		B37C0CD32B637CAC00FC1C58 /* PugCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PugCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,34 @@
 		B37C0CB82B636B3B00FC1C58 /* Solvedex Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				B37C0CD22B637C7700FC1C58 /* View */,
+				B37C0CCF2B63763700FC1C58 /* extensions */,
 				B37C0CB92B636B3B00FC1C58 /* AppDelegate.swift */,
 				B37C0CBB2B636B3B00FC1C58 /* SceneDelegate.swift */,
-				B37C0CBD2B636B3B00FC1C58 /* ViewController.swift */,
+				B37C0CBD2B636B3B00FC1C58 /* MainViewController.swift */,
 				B37C0CBF2B636B3B00FC1C58 /* Main.storyboard */,
 				B37C0CC22B636B3D00FC1C58 /* Assets.xcassets */,
 				B37C0CC42B636B3D00FC1C58 /* LaunchScreen.storyboard */,
 				B37C0CC72B636B3D00FC1C58 /* Info.plist */,
+				B37C0CCD2B636E0D00FC1C58 /* VCPreview.swift */,
 			);
 			path = "Solvedex Challenge";
+			sourceTree = "<group>";
+		};
+		B37C0CCF2B63763700FC1C58 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B37C0CD02B63764800FC1C58 /* UIView+ext.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		B37C0CD22B637C7700FC1C58 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B37C0CD32B637CAC00FC1C58 /* PugCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +163,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B37C0CBE2B636B3B00FC1C58 /* ViewController.swift in Sources */,
+				B37C0CBE2B636B3B00FC1C58 /* MainViewController.swift in Sources */,
+				B37C0CD42B637CAC00FC1C58 /* PugCollectionViewCell.swift in Sources */,
 				B37C0CBA2B636B3B00FC1C58 /* AppDelegate.swift in Sources */,
 				B37C0CBC2B636B3B00FC1C58 /* SceneDelegate.swift in Sources */,
+				B37C0CCE2B636E0D00FC1C58 /* VCPreview.swift in Sources */,
+				B37C0CD12B63764800FC1C58 /* UIView+ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +325,6 @@
 				INFOPLIST_FILE = "Solvedex Challenge/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,7 +352,6 @@
 				INFOPLIST_FILE = "Solvedex Challenge/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
