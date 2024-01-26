@@ -19,11 +19,11 @@ class MainVCViewModel{
     
     /// Here we are doing a transformation of the data fetched by the service
     public func fetchPugs(){
-        self.fetchService.request { [weak self] pugs in
+        self.fetchService.request { [weak self] pugsModel in
             guard let self = self,
-                  let pugs = pugs as? [PugModel] else {return}
+                  let pugsModel = pugsModel as? [PugModel] else {return}
             self.canReload.value = true
-            self.pugs += pugs.map({PugViewModel($0)})
+            self.pugs.append(contentsOf: pugsModel.map({PugViewModel($0)}))
             
         } onFailure: { [weak self] webError in
             guard let self = self else {return}
