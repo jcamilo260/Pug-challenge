@@ -18,6 +18,12 @@
 		B37C0CD42B637CAC00FC1C58 /* PugCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CD32B637CAC00FC1C58 /* PugCollectionViewCell.swift */; };
 		B37C0CDA2B63953200FC1C58 /* PugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CD92B63953200FC1C58 /* PugData.swift */; };
 		B37C0CDD2B63958600FC1C58 /* PugModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CDC2B63958600FC1C58 /* PugModel.swift */; };
+		B37C0CE02B6396A400FC1C58 /* FetchDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CDF2B6396A400FC1C58 /* FetchDataService.swift */; };
+		B37C0CE32B63970E00FC1C58 /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CE22B63970E00FC1C58 /* JsonReader.swift */; };
+		B37C0CE62B63980B00FC1C58 /* WebError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CE52B63980B00FC1C58 /* WebError.swift */; };
+		B37C0CE92B63988500FC1C58 /* FetchDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CE82B63988500FC1C58 /* FetchDataProtocol.swift */; };
+		B37C0CEB2B6398D400FC1C58 /* WebUrlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CEA2B6398D400FC1C58 /* WebUrlProtocol.swift */; };
+		B37C0CED2B63998800FC1C58 /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C0CEC2B63998800FC1C58 /* Datasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,12 @@
 		B37C0CD32B637CAC00FC1C58 /* PugCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PugCollectionViewCell.swift; sourceTree = "<group>"; };
 		B37C0CD92B63953200FC1C58 /* PugData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PugData.swift; sourceTree = "<group>"; };
 		B37C0CDC2B63958600FC1C58 /* PugModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PugModel.swift; sourceTree = "<group>"; };
+		B37C0CDF2B6396A400FC1C58 /* FetchDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDataService.swift; sourceTree = "<group>"; };
+		B37C0CE22B63970E00FC1C58 /* JsonReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReader.swift; sourceTree = "<group>"; };
+		B37C0CE52B63980B00FC1C58 /* WebError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebError.swift; sourceTree = "<group>"; };
+		B37C0CE82B63988500FC1C58 /* FetchDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDataProtocol.swift; sourceTree = "<group>"; };
+		B37C0CEA2B6398D400FC1C58 /* WebUrlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebUrlProtocol.swift; sourceTree = "<group>"; };
+		B37C0CEC2B63998800FC1C58 /* Datasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,8 @@
 		B37C0CB82B636B3B00FC1C58 /* Solvedex Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				B37C0CE12B6396DB00FC1C58 /* Utils */,
+				B37C0CDE2B63968900FC1C58 /* Services */,
 				B37C0CD82B63951C00FC1C58 /* Model */,
 				B37C0CD72B638A1700FC1C58 /* Datasource */,
 				B37C0CD22B637C7700FC1C58 /* View */,
@@ -101,6 +115,8 @@
 		B37C0CD72B638A1700FC1C58 /* Datasource */ = {
 			isa = PBXGroup;
 			children = (
+				B37C0CE42B6397FC00FC1C58 /* Errors */,
+				B37C0CEC2B63998800FC1C58 /* Datasource.swift */,
 			);
 			path = Datasource;
 			sourceTree = "<group>";
@@ -120,6 +136,40 @@
 				B37C0CD92B63953200FC1C58 /* PugData.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		B37C0CDE2B63968900FC1C58 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B37C0CE72B63986D00FC1C58 /* Protocols */,
+				B37C0CDF2B6396A400FC1C58 /* FetchDataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B37C0CE12B6396DB00FC1C58 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B37C0CE22B63970E00FC1C58 /* JsonReader.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B37C0CE42B6397FC00FC1C58 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				B37C0CE52B63980B00FC1C58 /* WebError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		B37C0CE72B63986D00FC1C58 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B37C0CE82B63988500FC1C58 /* FetchDataProtocol.swift */,
+				B37C0CEA2B6398D400FC1C58 /* WebUrlProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,13 +244,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				B37C0CBE2B636B3B00FC1C58 /* MainViewController.swift in Sources */,
+				B37C0CE02B6396A400FC1C58 /* FetchDataService.swift in Sources */,
 				B37C0CD42B637CAC00FC1C58 /* PugCollectionViewCell.swift in Sources */,
 				B37C0CBA2B636B3B00FC1C58 /* AppDelegate.swift in Sources */,
+				B37C0CE92B63988500FC1C58 /* FetchDataProtocol.swift in Sources */,
 				B37C0CDA2B63953200FC1C58 /* PugData.swift in Sources */,
+				B37C0CED2B63998800FC1C58 /* Datasource.swift in Sources */,
 				B37C0CBC2B636B3B00FC1C58 /* SceneDelegate.swift in Sources */,
+				B37C0CE32B63970E00FC1C58 /* JsonReader.swift in Sources */,
 				B37C0CCE2B636E0D00FC1C58 /* VCPreview.swift in Sources */,
 				B37C0CDD2B63958600FC1C58 /* PugModel.swift in Sources */,
 				B37C0CD12B63764800FC1C58 /* UIView+ext.swift in Sources */,
+				B37C0CE62B63980B00FC1C58 /* WebError.swift in Sources */,
+				B37C0CEB2B6398D400FC1C58 /* WebUrlProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

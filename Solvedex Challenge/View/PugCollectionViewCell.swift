@@ -25,7 +25,7 @@ class PugCollectionViewCell: UICollectionViewCell {
     }()
     
     private let iconImage: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "heart"))
+        let imageView = UIImageView(image: UIImage(systemName: Datasource.UICollection.heartIcon))
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .black
         return imageView

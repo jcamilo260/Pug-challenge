@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Pugs"
+        title = Datasource.Menu.title
         self.configUI()
         self.setupCollectionView()
     }
@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
     private func setupCollectionView(){
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        self.collectionView.register(PugCollectionViewCell.self, forCellWithReuseIdentifier: "\(PugCollectionViewCell.self)")
+        self.collectionView.register(PugCollectionViewCell.self, forCellWithReuseIdentifier: Datasource.UICollection.cellIdentifier)
     }
     
     private func configUI(){
@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(PugCollectionViewCell.self)", for: indexPath) as! PugCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Datasource.UICollection.cellIdentifier, for: indexPath) as! PugCollectionViewCell
         cell.image.image = UIImage(named: self.temp[indexPath.row])
         return cell
     }
@@ -46,7 +46,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: self.view.frame.width + 80)
+        return CGSize(width: self.view.frame.width, height: self.view.frame.width + Datasource.UICollection.extraHeightSize)
     }
 }
 
