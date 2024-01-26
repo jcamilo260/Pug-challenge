@@ -29,5 +29,7 @@ PugViewer is an iOS application that allows users to explore an infinite scroll 
 ## Preview
 
 ![PugViewer App Preview](https://github.com/jcamilo260/Solvedex-Pug-challenge)
+![PugGhipy](https://github.com/jcamilo260/Solvedex-Pug-challenge/assets/22894828/b96b0a6e-75bf-433b-8980-5a9e96eb62d0)
+
 
 Feel free to contribute, report issues, or suggest new features to make PugViewer even more delightful for pug enthusiasts! 🐶💕
