@@ -31,24 +31,32 @@ class PugCollectionViewCell: UICollectionViewCell {
         button.tintColor = .black
         button.setBackgroundImage(UIImage(systemName: Datasource.UICollection.heartIcon), for: .normal)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        
-        
         return button
     }()
     
+    /// Executes the actions related to this button
+    /// - Parameter _sender: button that we want to pass to  other functions
     @objc func buttonTapped(_sender: UIButton) {
-        DispatchQueue.main.async {[weak self] in
-            guard let self = self else {return}
-            self.pugViewModel?.incrementLikes()
-            self.configureUI()
-        }
+        
+        self.executeAnimation(sender: _sender)
+        self.pugViewModel?.incrementLikes()
+        self.configureUI()
+        
     }
     
-    private func subscriptions(){
-        self.pugViewModel?.sender.binder({ _ in
-            self.configureUI()
-            print("meeeeh")
-        })
+    /// Executes animation of the button
+    /// - Parameter sender: The button that will be changed
+    private func executeAnimation(sender: UIButton){
+                let animation = CABasicAnimation(keyPath: "backgroundColor")
+                animation.fromValue = sender.backgroundColor?.cgColor
+                animation.toValue = UIColor.red.cgColor
+                animation.duration = 0.5
+
+                CATransaction.setCompletionBlock {
+                    sender.backgroundColor = nil
+                }
+
+                sender.layer.add(animation, forKey: "backgroundColorAnimation")
     }
     
     private let likesText: UILabel = {
@@ -63,17 +71,16 @@ class PugCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
-        self.subscriptions()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configureUI()
-        self.subscriptions()
     }
     
     // MARK: - Configuration
     
+    /// Updates the view taking into account what it is available on viewmodel
     private func configureUI() {
         guard let pugViewModel = pugViewModel else {return}
         addSubview(vStack)

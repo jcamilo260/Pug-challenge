@@ -18,6 +18,7 @@ final class ObservableObject<T>{
         self.value = value
     }
     
+    /// A function that will be executed in the future is being stored here
     private var listener: ((T)->Void)?
     
     func binder(_ listener: @escaping (T)->Void)->Void{

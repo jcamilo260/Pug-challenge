@@ -6,28 +6,29 @@
 //
 
 import Foundation
-class PugViewModel{
+class PugViewModel {
     public let image: String
     public var likesAmount: String
     public var pug: PugModel
-    public var sender: ObservableObject<Bool?> = ObservableObject(nil)
-    
-    init(_ pug: PugModel){
+
+    init(_ pug: PugModel) {
         self.pug = pug
         self.image = pug.image
-        self.likesAmount = "\(self.pug.likesAmount) \((self.pug.likesAmount > 1 ? "likes" : "like"))"
+        self.likesAmount = ""
+        self.likesAmount = formatLikesString(likes: pug.likesAmount)
     }
     
-    private func setLikesAmount(amount: Int){
-        self.likesAmount = "\(self.pug.likesAmount) \((self.pug.likesAmount > 1 ? "likes" : "like"))"
+    /// Choose between saying 1 like or likes
+    /// - Parameter likes: the current likes
+    /// - Returns: This will return a converted text for like label
+    private func formatLikesString(likes: Int) -> String {
+        let likesString = "\(likes) \(likes == 1 ? "like" : "likes")"
+        return likesString
     }
     
-    public func incrementLikes(){
-        self.pug.likesAmount = self.pug.likes + 1
-        self.setLikesAmount(amount: self.pug.likesAmount)
-        print(self.pug.likesAmount)
-        DispatchQueue.main.async {
-            self.sender.value = true
-        }
+    /// This will increment the amount of likes
+    public func incrementLikes() {
+        self.pug.likesAmount += 1
+        self.likesAmount = formatLikesString(likes: self.pug.likesAmount)
     }
 }

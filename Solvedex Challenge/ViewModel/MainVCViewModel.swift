@@ -17,6 +17,7 @@ class MainVCViewModel{
         self.pugs = []
     }
     
+    /// Here we are doing a transformation of the data fetched by the service
     public func fetchPugs(){
         self.fetchService.request { [weak self] pugs in
             guard let self = self,
@@ -30,10 +31,15 @@ class MainVCViewModel{
         }
     }
     
+    /// Amount of pugs in array
+    /// - Returns: Returns the current amount of pugs
     public func getPugsCount()->Int{
         return self.pugs.count
     }
     
+    /// Error system handling for users
+    /// - Parameter error: Error from fetchPugs function
+    /// - Returns: Converts the current error into a message
     private func transformError(error: WebError)->String{
         switch error{
         case .unableToConvertData:
@@ -47,6 +53,9 @@ class MainVCViewModel{
         }
     }
     
+    /// Used for faster viemodel assign
+    /// - Parameter index: iindex in pugs array
+    /// - Returns:This will provide a viewmodel
     public func getPugViewModel(at index: Int)->PugViewModel{
         return pugs[index]
     }
