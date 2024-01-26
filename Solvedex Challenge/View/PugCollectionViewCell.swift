@@ -9,31 +9,65 @@ import UIKit
 
 class PugCollectionViewCell: UICollectionViewCell {
     
-    public var image: UIImageView = UIImageView()
-    public var likesText: UILabel = {
-        let label: UILabel = UILabel()
-        label.font = .systemFont(ofSize: 40, weight: .bold)
-        label.text = "hoaaaa"
+    // MARK: - UI Elements
+    
+    public let image: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
+    private let likesText: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 20, weight: .bold)
         return label
     }()
     
+    private let iconImage: UIImageView = {
+        let imageView = UIImageView(image: UIImage(systemName: "heart"))
+        imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .black
+        return imageView
+    }()
+    
+    // MARK: - Initializers
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.configUI()
+        configureUI()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.configUI()
+        configureUI()
     }
     
-    private func configUI(){
-        let vStack: UIStackView = UIStackView(arrangedSubviews: [image, likesText])
-        image.anchor(width: self.frame.width, height: self.frame.height - 80)
-        vStack.axis = .vertical
-        vStack.spacing = 30
-        self.addSubview(vStack)
+    // MARK: - Configuration
+    
+    private func configureUI() {
+        addSubview(vStack)
         vStack.addConstraintsToFillView(view: self)
-        likesText.text = "Holaaaa"
+        image.anchor(height: frame.width)
+        iconImage.anchor(width: 50, height: 50)
+        likesText.text = "Temp"
     }
+    
+    // MARK: - Stack Views
+    
+    private lazy var innerStack: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [iconImage, likesText])
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.distribution = .fillProportionally
+        return stackView
+    }()
+    
+    private lazy var vStack: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [image, innerStack])
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.spacing = 10
+        return stackView
+    }()
 }
