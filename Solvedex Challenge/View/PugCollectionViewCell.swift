@@ -6,10 +6,16 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PugCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI Elements
+    public var pugViewModel: PugViewModel?{
+        didSet{
+            self.configureUI()
+        }
+    }
     
     public let image: UIImageView = {
         let imageView = UIImageView()
@@ -18,18 +24,29 @@ class PugCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    public let heartButton: UIButton = {
+        let button = UIButton()
+        button.contentMode = .scaleAspectFill
+        button.clipsToBounds = true
+        button.tintColor = .black
+        button.setBackgroundImage(UIImage(systemName: Datasource.UICollection.heartIcon), for: .normal)
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+
+        
+        return button
+    }()
+    
+    @objc func buttonTapped(_sender: UIButton) {
+            // Lógica que se ejecuta cuando el botón es tocado
+        print("hey hey hey")
+        }
+    
     private let likesText: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20, weight: .bold)
         return label
     }()
     
-    private let iconImage: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: Datasource.UICollection.heartIcon))
-        imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .black
-        return imageView
-    }()
     
     // MARK: - Initializers
     
@@ -46,22 +63,31 @@ class PugCollectionViewCell: UICollectionViewCell {
     // MARK: - Configuration
     
     private func configureUI() {
+        guard let pugViewModel = pugViewModel else {return}
         addSubview(vStack)
         vStack.addConstraintsToFillView(view: self)
         image.anchor(height: frame.width)
-        iconImage.anchor(width: 50, height: 50)
+        image.anchor(left: self.leftAnchor, right: self.rightAnchor)
+        heartButton.anchor(width: 50, height: 40)
         likesText.text = "Temp"
+        self.setImage(image: pugViewModel.image)
+        likesText.text = pugViewModel.likesAmount
     }
     
     // MARK: - Stack Views
     
     private lazy var innerStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [iconImage, likesText])
+        let stackView = UIStackView(arrangedSubviews: [heartButton, likesText])
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .fillProportionally
         return stackView
     }()
+    
+    private func setImage(image: String){
+        let url: URL = URL(string: image)!
+        self.image.kf.setImage(with: url)
+    }
     
     private lazy var vStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [image, innerStack])
